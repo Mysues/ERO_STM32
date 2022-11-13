@@ -1,0 +1,60 @@
+@startuml
+skinparam linetype polyline
+skinparam linetype ortho
+
+artifact "Mobile Robot" as robot{
+    agent "ERO" as subject_ero
+    agent "Navigation Actuators" as robot_nav
+    agent "Peripheral" as robot_peri
+    agent "Mode" as robot_mode
+    agent "Comunication Transceiver" as robot_com
+    agent "Foward" as robot_nav_fw
+    agent "Reverse" as robot_nav_rv
+    agent "Left" as robot_nav_l
+    agent "Right" as robot_nav_r
+} 
+artifact "Smart Phone" as remote{
+    agent "Remote Control" as subject_remote
+    agent "Navigation" as remote_nav
+    agent "Peripheral" as remote_peri
+    agent "Mode" as remote_mode
+    agent "Comunication Transceiver" as remote_com
+    agent "Foward" as remote_nav_fw
+    agent "Reverse" as remote_nav_rv
+    agent "Left" as remote_nav_l
+    agent "Right" as remote_nav_r
+}
+
+note "Details on ERO_Peri_Mode_BlockDiagram" as extention_hint
+
+robot_com ---> remote_com
+robot_com <--left-- remote_com
+robot_com -[hidden]- remote_com
+robot -[hidden]right- remote
+subject_ero -[hidden]right- robot_com
+
+subject_ero -- robot_nav
+subject_ero -- robot_peri
+subject_ero -- robot_mode
+subject_ero -- robot_com
+robot_nav -- robot_nav_fw
+robot_nav -- robot_nav_rv
+robot_nav -- robot_nav_l
+robot_nav -- robot_nav_r
+
+subject_remote -- remote_nav
+subject_remote -- remote_peri
+subject_remote -- remote_mode
+subject_remote -- remote_com
+remote_nav -- remote_nav_fw
+remote_nav -- remote_nav_rv
+remote_nav -- remote_nav_l
+remote_nav -- remote_nav_r
+
+remote_peri .. extention_hint
+remote_mode .. extention_hint
+
+robot_peri .. extention_hint
+robot_mode .. extention_hint
+
+@enduml
