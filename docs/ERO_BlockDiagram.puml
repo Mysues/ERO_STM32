@@ -2,10 +2,12 @@
 skinparam linetype polyline
 skinparam linetype ortho
 
+title ERO Block Diagram
+
 artifact "Mobile Robot" as robot{
     agent "ERO" as subject_ero
     agent "Navigation Actuators" as robot_nav
-    agent "Peripheral" as robot_peri
+    agent "Action" as robot_peri
     agent "Mode" as robot_mode
     agent "Comunication Transceiver" as robot_com
     agent "Foward" as robot_nav_fw
@@ -13,10 +15,10 @@ artifact "Mobile Robot" as robot{
     agent "Left" as robot_nav_l
     agent "Right" as robot_nav_r
 } 
-artifact "Smart Phone" as remote{
+artifact "Remote Control" as remote{
     agent "Remote Control" as subject_remote
     agent "Navigation" as remote_nav
-    agent "Peripheral" as remote_peri
+    agent "Action\nButton" as remote_peri
     agent "Mode" as remote_mode
     agent "Comunication Transceiver" as remote_com
     agent "Foward" as remote_nav_fw
