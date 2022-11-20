@@ -1,0 +1,19 @@
+@startuml
+
+skinparam linetype polyline
+skinparam linetype ortho
+
+title Robot Hardware Diagram
+
+node "ESP32" as microc
+node "2xLED" as light_beam
+node "Motor Driver" as mdriver
+node "Left Motor" as l_motor
+node "Right Motor" as r_motor
+
+microc -- mdriver
+microc -- light_beam
+mdriver -- l_motor
+mdriver -- r_motor
+
+@enduml

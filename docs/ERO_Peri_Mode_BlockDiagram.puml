@@ -1,0 +1,46 @@
+@startuml
+
+skinparam linetype polyline
+skinparam linetype ortho
+
+title ERO Peripheral&Mode Block Diagram (Extention)
+
+artifact "Mobile Robot" as robot{
+    agent "ERO" as ero
+    agent "Action" as robot_peri
+    agent "Mode" as robot_mode
+    agent "Manual" as robot_mode_manual
+    agent "Auto" as robot_mode_auto
+
+    agent "Beam Light" as robot_light
+} 
+artifact "Remote Control" as remote{
+    agent "ERO_Control" as ero_remote
+    agent "Action Button" as remote_peri
+    agent "Mode" as remote_mode
+    agent "Manual" as remote_mode_manual
+    agent "Auto" as remote_mode_auto
+
+    agent "Button 1" as remote_btn1
+    agent "Button 2" as remote_btn2
+    agent "Button 3" as remote_btn3
+    agent "Button 4" as remote_btn4
+
+}
+
+ero -left- robot_peri
+robot_peri -- robot_light
+ero -- robot_mode
+robot_mode -right- robot_mode_manual
+robot_mode -- robot_mode_auto
+
+ero_remote -left- remote_peri
+ero_remote -- remote_mode
+remote_mode -right- remote_mode_manual
+remote_mode -- remote_mode_auto
+remote_peri -- remote_btn1
+remote_peri -- remote_btn2
+remote_peri -- remote_btn3
+remote_peri -- remote_btn4
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+
+skinparam linetype polyline
+skinparam linetype ortho
+
+title Remote Hardware Diagram
+
+node "ESP32" as microc
+rectangle "Navigation (Button)" as nav{
+    rectangle "up" as nav_up
+    rectangle "down" as nav_down
+    rectangle "left" as nav_left
+    rectangle "right" as nav_right
+}
+
+rectangle "Action (Button)" as act{
+    rectangle "Green" as act_1
+    rectangle "Yellow" as act_2
+    rectangle "Blue" as act_3
+    rectangle "Red" as act_4
+}
+
+rectangle "Mode Selection (Slider)" as mode{
+    rectangle "Auto" as mode_1
+    rectangle "Manual" as mode_2
+}
+
+microc --down-- nav
+microc --down-- act
+microc --down-- mode
+@enduml
