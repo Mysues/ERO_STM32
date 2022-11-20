@@ -1,8 +1,8 @@
 @startuml
 
-title ERO COMPONENT DIAGRAM
+title ERO REMOTE COMPONENT DIAGRAM
 
-component "ERO.h" as ero_h
+component "ERO_Remote.h" as ero_h
 component "COM.h" as com_h
 component "BLE.h" as ble_h
 component "NAV.h" as nav_h
